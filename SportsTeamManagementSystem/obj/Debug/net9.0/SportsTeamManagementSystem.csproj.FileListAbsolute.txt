@@ -1,0 +1,15 @@
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\bin\Debug\net9.0\SportsTeamManagementSystem.exe
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\bin\Debug\net9.0\SportsTeamManagementSystem.deps.json
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\bin\Debug\net9.0\SportsTeamManagementSystem.runtimeconfig.json
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\bin\Debug\net9.0\SportsTeamManagementSystem.dll
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\bin\Debug\net9.0\SportsTeamManagementSystem.pdb
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\SportsTeamManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\SportsTeamManagementSystem.AssemblyInfoInputs.cache
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\SportsTeamManagementSystem.AssemblyInfo.cs
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\SportsTeamManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\SportsTeamManagementSystem.sourcelink.json
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\SportsTeamManagementSystem.dll
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\refint\SportsTeamManagementSystem.dll
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\SportsTeamManagementSystem.pdb
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\SportsTeamManagementSystem.genruntimeconfig.cache
+C:\Users\szymo\RiderProjects\SportsTeamManagementSystem\SportsTeamManagementSystem\obj\Debug\net9.0\ref\SportsTeamManagementSystem.dll
