@@ -212,21 +212,21 @@ class Program
     private static void FindPlayerByScore(Team team)
     {
         Console.Write("Podaj minimalną liczbę punktów: ");
-        int minScore = int.Parse(Console.ReadLine());
+        int minScore = Convert.ToInt32(Console.ReadLine());
 
         var players = team.players.Where(p => p.Score >= minScore).ToList();
 
-        if (players.Any())
+        if (players is null)
+        {
+            Console.WriteLine($"Brak zawodników z wynikiem co najmniej {minScore}.");
+        }
+        else
         {
             Console.WriteLine($"Zawodnicy z wynikiem co najmniej {minScore}:");
             foreach (var player in players)
             {
                 Console.WriteLine($"Imię: {player.Name}, Pozycja: {player.Position}, Wynik: {player.Score}");
             }
-        }
-        else
-        {
-            Console.WriteLine($"Brak zawodników z wynikiem co najmniej {minScore}.");
         }
     }
 
