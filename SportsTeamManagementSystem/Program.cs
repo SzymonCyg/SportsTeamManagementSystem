@@ -16,8 +16,20 @@ public class Player
 
 public class Team
 {
-    public List<Player> players = new List<Player>();
-
+    public List<Player> players = new List<Player>
+    {
+        new Player { Name = "Dudek", Position = "Goalkeeper", Score = 4 },
+        new Player { Name = "Piszczek", Position = "Defender", Score = 14 },
+        new Player { Name = "Pazdan", Position = "Defender", Score = 16 },
+        new Player { Name = "Żmuda", Position = "Defender", Score = 11 },
+        new Player { Name = "Szymanowski", Position = "Defender", Score = 17},
+        new Player { Name = "Boniek", Position = "Midfielder", Score = 16 },
+        new Player { Name = "Krychowiak", Position = "Midfielder", Score = 15 },
+        new Player { Name = "Zielinski", Position = "Midfielder", Score = 19 },
+        new Player { Name = "Piątek", Position = "Striker", Score = 22 },
+        new Player { Name = "Lewandowski", Position = "Striker", Score = 19 },
+        new Player { Name = "Milik", Position = "Striker", Score = 18 }
+    };
     public void addPlayer(Player player)
     {
         players.Add(player);
@@ -64,12 +76,24 @@ public class Team
 
     public void DisplayPlayersStatistics()
     {
-        throw new NotImplementedException();
+        if (players.Count == 0)
+        {
+            Console.WriteLine("Brak zawodników w drużynie.");
+            return;
+        }
+
+        Console.WriteLine("Statystyki zawodników:");
+        foreach (var player in players)
+        {
+            Console.WriteLine($"Imię: {player.Name}, Pozycja: {player.Position}, Wynik: {player.Score}");
+        }
     }
 
     public string CalculateAverageScore()
     {
-        throw new NotImplementedException();
+        if (players.Count == 0) return "Brak zawodników w drużynie.";
+        double average = players.Average(player => player.Score);
+        return $"Średni wynik drużyny wynosi: {average:F2}";
     }
 }
 
@@ -79,7 +103,19 @@ public interface IPlayer
     string Position { get; }
     int Score { get; }
 }
+public class Goalkeeper : IPlayer
+{
+    public string Name { get; }
+    public string Position { get; }
+    public int Score { get; }
 
+    public Goalkeeper(string name, int score)
+    {
+        this.Name = name;
+        this.Score = score;
+        this.Position = "Goalkeeper";
+    }
+}
 public class Defender : IPlayer
 {
     public string Name {get;}
@@ -89,7 +125,7 @@ public class Defender : IPlayer
     public Defender(string name, int score, string position)
     {
         this.Name = name;
-        this.Score = 0;
+        this.Score = score;
         this.Position="Defender";
     }
 }
@@ -103,7 +139,7 @@ public class Midfielder : IPlayer
     public Midfielder(string name, int score, string position)
     {
         this.Name = name;
-        this.Score = 0;
+        this.Score = score;
         this.Position="Midfielder";
     }
 }
@@ -117,7 +153,7 @@ public class Striker : IPlayer
     public Striker(string name, int score, string position)
     {
         this.Name = name;
-        this.Score = 0;
+        this.Score = score;
         this.Position="Striker";
     }
 }
@@ -175,21 +211,77 @@ class Program
 
     private static void FindPlayerByScore(Team team)
     {
-        throw new NotImplementedException();
+        Console.Write("Podaj minimalną liczbę punktów: ");
+        int minScore = int.Parse(Console.ReadLine());
+
+        var players = team.players.Where(p => p.Score >= minScore).ToList();
+
+        if (players.Any())
+        {
+            Console.WriteLine($"Zawodnicy z wynikiem co najmniej {minScore}:");
+            foreach (var player in players)
+            {
+                Console.WriteLine($"Imię: {player.Name}, Pozycja: {player.Position}, Wynik: {player.Score}");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Brak zawodników z wynikiem co najmniej {minScore}.");
+        }
     }
 
     private static void FindPlayerByPosition(Team team)
     {
-        throw new NotImplementedException();
-    }
+        Console.Write("Podaj pozycję zawodnika (np. Goalkeeper, Defender, Midfielder, Striker): ");
+        string position = Console.ReadLine();
 
+        var playersByPosition = team.FindPlayersByPosition(position);
+
+        if (playersByPosition is null)
+        {
+            Console.WriteLine($"Brak zawodników na pozycji: {position}");
+        }
+        else
+        {
+            Console.WriteLine("Znalezieni zawodnicy:");
+            foreach (var player in playersByPosition)
+            {
+                Console.WriteLine($"Nazwa: {player.Name}, Pozycja: {player.Position}, Wynik: {player.Score}");
+            }
+        }
+    }
+    
     private static void AddPlayer(Team team)
     {
         Console.WriteLine("Podaj imię zawodnika: ");
         string name = Console.ReadLine();
-        Console.Write("Podaj pozycję zawodnika (np. Defender, Midfielder, Striker): ");
+        Console.Write("Podaj pozycję zawodnika (np. Goalkeeper, Defender, Midfielder, Striker): ");
         string position = Console.ReadLine();
-        
+        Console.WriteLine("Podaj ilosc punktów zawodnika: ");
+        int score = int.Parse(Console.ReadLine());
+
+        Player newPlayer;
+        switch (position)
+        {
+            case "Goalkeeper":
+                newPlayer = new Player { Name = name, Position = "Goalkeeper", Score = score };
+                break;
+            case "Defender":
+                newPlayer = new Player { Name = name, Position = "Defender", Score = score };
+                break;
+            case "Midfielder":
+                newPlayer = new Player { Name = name, Position = "Midfielder", Score = score };
+                break;
+            case "Striker":
+                newPlayer = new Player { Name = name, Position = "Striker", Score = score };
+                break;
+            default:
+                Console.WriteLine("Nieprawidłowa pozycja, spróbuj ponownie.");
+                return;
+        }
+
+        team.addPlayer(newPlayer);
+        Console.WriteLine($"Dodano zawodnika: {newPlayer.Name}, Pozycja: {newPlayer.Position}");
     }
     private static void RemovePlayer(Team team)
     {
