@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Runtime.CompilerServices;
+
 public class Player
 {
     public string Name {get; set;}
@@ -38,5 +40,53 @@ public class Team
     {
         return players.Average(player => player.Score);
     }
-    
+}
+
+public interface IPlayer
+{
+    string Name { get; }
+    string Position { get; }
+    int Score { get; }
+}
+
+public class Defender : IPlayer
+{
+    public string Name {get;}
+    public string Position { get; }
+    public int Score {get;}
+
+    public Defender(string name, int score, string position)
+    {
+        this.Name = name;
+        this.Score = score;
+        this.Position="Defender";
+    }
+}
+
+public class Midfielder : IPlayer
+{
+    public string Name {get;}
+    public string Position { get; }
+    public int Score {get;}
+
+    public Midfielder(string name, int score, string position)
+    {
+        this.Name = name;
+        this.Score = score;
+        this.Position="midfielder";
+    }
+}
+
+public class Striker : IPlayer
+{
+    public string Name {get;}
+    public string Position { get; }
+    public int Score {get;}
+
+    public Striker(string name, int score, string position)
+    {
+        this.Name = name;
+        this.Score = score;
+        this.Position="Striker";
+    }
 }
